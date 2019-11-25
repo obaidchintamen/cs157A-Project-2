@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Add Visit</title>
+    </head>
+    <body>
+        <h1>Add Visit</h1>
+        <form>
+                <p>
+                    {{ form.visit_ID.label }}<br>
+                    {{ form.visit_ID(size=32) }}
+                </p>
+                <p>
+                    {{ form.patient_ID.label }}<br>
+                    {{ form.patient_ID(size=32) }}
+                </p>
+                <p>
+                    {{ form.thc_number.label }}<br>
+                    {{ form.thc_number(size=32) }}
+                </p>
+                <p>
+                    {{ form.date.label }}<br>
+                    {{ form.date(size=32) }}
+                </p>
+        </form>
+
+    </body>
+</html>
