@@ -9,10 +9,10 @@ import os
 
 mysql = MySQL()
 mysql.init_app(app)
-app.config['MYSQL_DATABASE_USER'] = os.environ.get('MYSQL_DATABASE_USER')
-app.config['MYSQL_DATABASE_PASSWORD'] = os.environ.get('MYSQL_DATABASE_PASSWORD')
-app.config['MYSQL_DATABASE_DB'] = os.environ.get('MYSQL_DATABASE_DB')
-app.config['MYSQL_DATABASE_HOST'] = os.environ.get('MYSQL_DATABASE_HOST')
+app.config['MYSQL_DATABASE_USER'] = 'obaid'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'aaa123123123'
+app.config['MYSQL_DATABASE_DB'] = 'projectDB'
+app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 
 conn = mysql.connect()
 
@@ -38,9 +38,6 @@ def add_visit():
         return 'Submitted values: \n Visit ID : {} \n Patient ID : {}'.format(visitId, patientId)
     cursor.close()
     return render_template('add_visit.html', form = form)
-
-
-conn.close()
 
 
 @app.route('/add_interview')
@@ -69,3 +66,7 @@ def followup_interview():
     }
     form = AddFollowupInterviewForm()
     return render_template('followup_interview.html', form = form, buttons = buttons)
+
+
+
+conn.close()
