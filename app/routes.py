@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, redirect
+from flask import Flask, render_template, url_for, flash, redirect
 from flask_wtf import FlaskForm
 from app.forms import AddVisitForm
 from app.forms import AddInterviewForm
@@ -20,8 +20,11 @@ def index():
 
 @app.route('/add_visit')
 def add_visit():
+    buttons = {
+        'add':'Add Visit'
+    }
     form = AddVisitForm()
-    return render_template('add_visit.html', form = form)
+    return render_template('add_visit.html', buttons = buttons, form = form)
 
 @app.route('/add_interview')
 def add_interview():
@@ -34,10 +37,10 @@ def add_interview():
     form = AddInterviewForm()
     return render_template('add_interview.html', form = form, buttons = buttons)
 
-@app.route('/init_interview')
+@app.route('/init_interview', methods = ['GET', 'POST'])
 def init_interview():
-    buttons = {
-        'save':'Save'
-    }
     form = AddInitialInterviewForm()
-    return render_template('init_interview.html', form = form, buttons = buttons)
+    if form.validate_on_submit():
+        flash('Initial Interview Form submitted!')
+        return redirect(url_for('index'))
+    return render_template('init_interview.html', form = form)

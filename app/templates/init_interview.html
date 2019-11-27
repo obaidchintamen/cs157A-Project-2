@@ -4,7 +4,9 @@
     </head>
     <body>
         <h1>Tinnitus / Hyperacusis Initial Interview Form</h1>
-        <form>
+        <form action = '' method = "POST">
+            {{ form.csrf_token }}
+            <!-- Client info -->
             <p>
                 {{ form.clinic_number.label }}
                 {{ form.clinic_number(size = 32, type = 'number') }}
@@ -45,10 +47,9 @@
                 {{ form.email.label }}
                 {{ form.email(size = 32) }}
             </p>
-            <br>
-
+            ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            <!-- Tinnitus portion of interview -->
             <h2>Tinnitus</h2>   
-            
             <div>
                 {{ form.re() }}
                 {{ form.re.label }}
@@ -91,9 +92,7 @@
 
                 {{ form.fluctuations_volume_no() }}
                 {{ form.fluctuations_volume_no.label }}   
-                
                 <br><br>
-
                 {{ form.description_t_sound.label }}<br>
                 {{ form.description_t_sound(rows = '5', cols = '50', type = 'textarea') }}  
 
@@ -197,9 +196,221 @@
                 {{ form.quiet_yes_t_init.label }}
 
                 {{ form.quiet_no_t_init() }}
-                {{ form.quiet_no_t_init.label }}                 
+                {{ form.quiet_no_t_init.label }}               
             </div>
+            <br>
+            <div>
+                {{ form.treatments_spec_t_init.label }}<br>  
+                {{ form.treatments_spec_t_init(rows = '5', cols = '50', type = 'textarea') }}     
+                <br><br>
+                {{ form.problem_t.label }}<br>  
+                {{ form.problem_t(rows = '5', cols = '50', type = 'textarea') }}  
+                <br><br>
+                {{ form.comments_t_init.label }}<br>  
+                {{ form.comments_t_init(rows = '5', cols = '50', type = 'textarea') }}               
+            </div>
+            <br>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            <br>
+            <!-- Sound Tolerance portion of interview -->
+            <h2>Sound Tolerance</h2>   
+            <div>
+                Oversensitivity:
+                {{ form.oversensitivity_yes_st() }}
+                {{ form.oversensitivity_yes_st.label }}
+
+                {{ form.oversensitivity_no_st() }}
+                {{ form.oversensitivity_no_st.label }}
+                --------
+                Physical Discomfort?
+                {{ form.physicaldisc_yes_st() }}
+                {{ form.physicaldisc_yes_st.label }}
+
+                {{ form.physicaldisc_no_st() }}
+                {{ form.physicaldisc_no_st.label }}
+                <br><br>
+                {{ form.description_sound_st.label }}<br>
+                {{ form.description_sound_st(rows = '5', cols = '50', type = 'textarea') }}  
+            </div>
+            <br>
+            <div>
+                Activities prevented or affected:
+                <br>
+                {{ form.concerts_st_init() }}
+                {{ form.concerts_st_init.label }}
+            
+                {{ form.shopping_st_init() }}
+                {{ form.shopping_st_init.label }}
+            
+                {{ form.movies_st_init() }}
+                {{ form.movies_st_init.label }}
+            
+                {{ form.work_st_init() }}
+                {{ form.work_st_init.label }}
+            </div>
+            <div>
+                {{ form.restaurants_st_init() }}
+                {{ form.restaurants_st_init.label }}
+                
+                {{ form.driving_st_init() }}
+                {{ form.driving_st_init.label }}
+
+                {{ form.sports_st_init() }}
+                {{ form.sports_st_init.label }}
+
+                {{ form.church_st_init() }}
+                {{ form.church_st_init.label }}
+            </div>    
+            <div>
+                {{ form.housekeeping_st_init() }}
+                {{ form.housekeeping_st_init.label }}
+                            
+                {{ form.childcare_st_init() }}
+                {{ form.childcare_st_init.label }}
+            
+                {{ form.social_st_init() }}
+                {{ form.social_st_init.label }}
+            
+                {{ form.other_st_init() }}
+                {{ form.other_st_init.label }}
+            </div>
+            <br> 
+            <div>
+                {{ form.severity_st_init.label }} 
+                {{ form.severity_st_init(type = 'number') }}
+                <br>
+                {{ form.annoyance_st_init.label }}  
+                {{ form.annoyance_st_init(type = 'number') }}
+                <br>
+                {{ form.effectonlife_st_init.label }}  
+                {{ form.effectonlife_st_init(type = 'number') }}              
+            </div>
+            <br>
+            <div>
+                "Bad Days": 
+                {{ form.baddays_yes_st_init() }}
+                {{ form.baddays_yes_st_init.label }}
+
+                {{ form.baddays_no_st_init() }}
+                {{ form.baddays_no_st_init.label }} 
+                <br>
+                {{ form.baddays_freq_st_init.label }}  
+                {{ form.baddays_freq_st_init(type = 'number') }}  
+            </div>
+            <br>
+            <div>
+                Effect of sound:
+                {{ form.none_st_init() }}
+                {{ form.none_st_init.label }}
+
+                {{ form.louder_st_init() }}
+                {{ form.louder_st_init.label }}
+
+                {{ form.softer_st_init() }}
+                {{ form.softer_st_init.label }} 
+                <br>
+                How long:
+                {{ form.mins_st_init() }}
+                {{ form.mins_st_init.label }}
+
+                {{ form.hours_st_init() }}
+                {{ form.hours_st_init.label }}
+
+                {{ form.days_st_init() }}
+                {{ form.days_st_init.label }}                               
+            </div>
+            <br>
+            <div>
+                Ear protection:
+                {{ form.overprotection_yes_st_init() }}
+                {{ form.overprotection_yes_st_init.label }}
+
+                {{ form.overprotection_no_st_init() }}
+                {{ form.overprotection_no_st_init.label }} 
+                --------
+                {{ form.overprotection_freq_st_init.label }}  
+                {{ form.overprotection_freq_st_init(type = 'number') }}  
+                <br>
+                in quiet:
+                {{ form.quiet_yes_st_init() }}
+                {{ form.quiet_yes_st_init.label }}
+
+                {{ form.quiet_no_st_init() }}
+                {{ form.quiet_no_st_init.label }}               
+            </div>
+            <br>
+            <div>
+                {{ form.treatments_spec_st_init.label }}<br>  
+                {{ form.treatments_spec_st_init(rows = '5', cols = '50', type = 'textarea') }}     
+                <br><br>
+                {{ form.problem_st.label }}<br>  
+                {{ form.problem_st(rows = '5', cols = '50', type = 'textarea') }}  
+                <br><br>
+                {{ form.comments_st_init.label }}<br>  
+                {{ form.comments_st_init(rows = '5', cols = '50', type = 'textarea') }}               
+            </div>
+            <br>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            <br>
+            <!-- Hearing portion of interview -->
+            <h2>Hearing</h2>   
+            <div>
+                Hearing Problem:
+                {{ form.problem_yes_hl() }}
+                {{ form.problem_yes_hl.label }}
+
+                {{ form.problem_no_hl() }}
+                {{ form.problem_no_hl.label }}
+                <br>
+                Hearing Aid(s):
+                {{ form.aid_yes_hl() }}
+                {{ form.aid_yes_hl.label }}
+
+                {{ form.aid_no_hl() }}
+                {{ form.aid_no_hl.label }}
+
+                --------
+
+                {{ form.aid_type_hl.label }} 
+                {{ form.aid_type_hl(size = 32) }}
+                <br>
+                Ever Recommended:
+
+                {{ form.recommended_yes_hl() }}
+                {{ form.recommended_yes_hl.label }}
+
+                {{ form.recommended_no_hl_init() }}
+                {{ form.recommended_no_hl_init.label }}
+                <br><br>
+                {{ form.category_type_hl.label }} 
+                {{ form.category_type_hl(size = 32) }}
+                <br>
+                {{ form.recommendation_type_hl.label }} 
+                {{ form.recommendation_type_hl(size = 32) }}
+            </div>
+            <br>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            <br><br>
+            <div>
+                Ranking Problems: <br>
+                {{ form.tinnitus_init.label }}  
+                {{ form.tinnitus_init(type = 'number') }} 
+                <br>
+                {{ form.sound_tolerance_init.label }}  
+                {{ form.sound_tolerance_init(type = 'number') }} 
+                <br>
+                {{ form.hearing_init.label }}  
+                {{ form.hearing_init(type = 'number') }} 
+            </div>
+            <br>
+            <div>
+                {{ form.ptn_decision.label }}  
+                {{ form.ptn_decision(size = 32) }} 
+                <br>
+                {{ form.next_visit_init.label }}  
+                {{ form.next_visit_init(type = 'date') }} 
+            </div>
+            <p>{{ form.submit() }}</p>
         </form>
-        <button type="button">{{buttons.save}}</button>
     </body>
 </html>
