@@ -27,7 +27,7 @@ class AddInitialInterviewForm(FlaskForm):
     first_name = StringField('First Name:', validators = [Optional()])
     last_name = StringField('Last Name:', validators = [Optional()])
     dob = DateField('DOB:', validators = [Optional()])
-    ssn = IntegerField('SSN:', validators = [Optional(),NumberRange(min = 000000000, max = 999999999, message = "SSN must be 9 digits")])
+    ssn = IntegerField('SSN:', validators = [Optional(), NumberRange(min = 000000000, max = 999999999, message = "SSN must be 9 digits")])
     insurance = StringField('Insurance:', validators = [Optional()])
     date = DateField('Date:', validators = [Optional()])
     thc = IntegerField('T&HC:', validators = [Optional()])
@@ -167,20 +167,82 @@ class AddInitialInterviewForm(FlaskForm):
     
 class AddFollowupInterviewForm(FlaskForm):
     # Beginning Info
-    clinic_number = IntegerField('Clinic #:', validators = [Optional()])
-    first_name = StringField('First Name:', validators = [Optional()])
-    last_name = StringField('Last Name:', validators = [Optional()])
-    dob = DateField('DOB:', validators = [Optional()])
-    ssn = StringField('SSN:', validators = [Optional()])
-    insurance = StringField('Insurance:', validators = [Optional()])
-    date = DateField('Date:', validators = [Optional()])
+    clinic_number = IntegerField('Clinic #:', validators = [])
+    first_name = StringField('First Name:', validators = [])
+    last_name = StringField('Last Name:', validators = [])
+    dob = DateField('DOB:', validators = [])
+    ssn = StringField('SSN:', validators = [])
+    insurance = StringField('Insurance:', validators = [])
+    date = DateField('Date:', validators = [])
     # followup own question
-    category = StringField('GATEGORY: ', validators = [Optional()])
-    date_of_init = DateField('Date of init. couns.: ', validators = [Optional()])
-    date_of_instr = DateField('Date of instr. fitt.: ', validators = [Optional()])
-    SG = StringField('SG: ', validators = [Optional()])
-    HA = StringField('HA: ', validators = [Optional()])
-    FUQ_num = StringField('FUQ #: ', validators = [Optional()])
-    month = DateField('Month #:', validators = [Optional()])
-    thc = IntegerField('T&HC:', validators = [Optional()])
-    tel = StringField('tel: ', validators = [Optional()])
+    category = StringField('Gategory: ', validators = [])
+    date_of_init = DateField('Date of init. couns.: ', validators = [])
+    date_of_instr = DateField('Date of instr. fitt.: ', validators = [])
+    SG = StringField('SG: ', validators = [])
+    HA = StringField('HA: ', validators = [])
+    FUQ_num = StringField('FUQ #: ', validators = [])
+    month = DateField('Month #:', validators = [])
+    thc = IntegerField('T&HC:', validators = [])
+    tel = StringField('tel: ', validators = [])
+
+    # Tinn
+    
+    # Activities prevented or affected
+    concentration_t_init = BooleanField('Concentration', validators = [Optional()])
+    sleep_t_init = BooleanField('Sleep', validators = [Optional()])
+    qra_t_init = BooleanField('QRA', validators = [Optional()])
+    work_t_init = BooleanField('Work', validators = [Optional()])
+    restaurants_t_init = BooleanField('Restaurants', validators = [Optional()])
+    sports_t_init = BooleanField('Sports', validators = [Optional()])
+    social_t_init = BooleanField('Social', validators = [Optional()])
+    other_t_init = BooleanField('Other', validators = [Optional()])
+    
+    # percent_time_when_aware and annoyed
+    aware_t_init = IntegerField('Aware(1st)', validators = [InputRequired(), NumberRange(min = 0, max = 100, message = "Number must be between 0 and 100")])
+    annoyed_t_init = IntegerField('Annoyed(1st)', validators = [InputRequired(), NumberRange(min = 0, max = 100, message = "Number must be between 0 and 100")])
+    severity_t_init = IntegerField('Severity (1-10)', validators = [InputRequired(), NumberRange(min = 0, max = 10, message = "Number must be between 0 and 10")])
+    annoyance_t_init = IntegerField('Annoyance (1-10)', validators = [InputRequired(), NumberRange(min = 0, max = 10, message = "Number must be between 0 and 10")])
+    effectonlife_t_init = IntegerField('Effect on Life (1-10)', validators = [InputRequired(), NumberRange(min = 0, max = 10, message = "Number must be between 0 and 10")])
+
+    # Bad Days 
+    baddays_yes_t_init = BooleanField('Yes', validators = [Optional()])
+    baddays_no_t_init = BooleanField('No', validators = [Optional()])
+    baddays_freq_t_init = IntegerField('Frequency', validators = [InputRequired()])  
+
+    # are frequent
+    areFrequent_yes_t_init = BooleanField('Yes', validators = [Optional()])
+    areFrequent_no_t_init = BooleanField('No', validators = [Optional()])
+    areBad_yes_t_init = BooleanField('Yes', validators = [Optional()])
+    areBad_no_t_init = BooleanField('No', validators = [Optional()])
+
+    # Effect of Sound
+    none_t_init = BooleanField('None', validators = [Optional()])
+    louder_t_init = BooleanField('Louder', validators = [Optional()])
+    softer_t_init = BooleanField('Softer', validators = [Optional()])
+    mins_t_init = BooleanField('Mins', validators = [Optional()])
+    hours_t_init = BooleanField('Hours', validators = [Optional()])
+    days_t_init = BooleanField('Days', validators = [Optional()])
+
+    # Ear overprotection
+    overprotection_yes_t_init = BooleanField('Yes', validators = [Optional()])
+    overprotection_no_t_init = BooleanField('No', validators = [Optional()])
+    overprotection_freq_t_init = IntegerField('Percent of time when', validators = [InputRequired()])    
+    quiet_yes_t_init = BooleanField('Yes', validators = [Optional()])
+    quiet_no_t_init = BooleanField('No', validators = [Optional()]) 
+
+    # Comments
+    treatments_spec_t_init = TextAreaField('Any other T specific treatments:', validators = [Optional()])
+    comments_t_init = TextAreaField('Comments:', validators = [Optional()])
+
+    #Hearing
+    PinG_Same = BooleanField('Same ', validators = [Optional()])
+    PinG_Better = BooleanField('Better ', validators = [Optional()])
+    PinG_Worse = BooleanField('Worse ', validators = [Optional()])
+    tinnitus_init = IntegerField('Tinnitus', validators = [Optional(), NumberRange(min = 0, max = 5, message = "Number must be between 0 and 5")])
+    sound_tolerance_init = IntegerField('Sound Tolerance', validators = [Optional(), NumberRange(min = 0, max = 5, message = "Number must be between 0 and 5")])
+    hearing_init = IntegerField('Hearing', validators = [Optional(), NumberRange(min = 0, max = 5, message = "Number must be between 0 and 5")])
+    feedback_yes = BooleanField(' Yes', validators = [Optional()])
+    feedback_no = BooleanField(' No', validators = [Optional()])
+    feedback_ns = BooleanField(' NS', validators = [Optional()])
+
+    mp_discussed = TextAreaField('Main problems discussed:', validators = [Optional()])

@@ -10,6 +10,7 @@
             {{ form.hidden_tag() }}
             <!-- Client info -->
             <p>
+                <!-- initial  -->
                 {{ form.clinic_number.label }}
                 {{ form.clinic_number(size = 32, type = 'number') }}
             </p>
@@ -198,7 +199,7 @@
                 {{ form.quiet_yes_t_init.label }}
 
                 {{ form.quiet_no_t_init() }}
-                {{ form.quiet_no_t_init.label }}               
+                {{ form.quiet_no_t_init.label }}             
             </div>
             <br>
             <div>

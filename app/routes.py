@@ -144,7 +144,7 @@ def init_interview():
         clinicNum = form.clinic_number.data
         thcNum = form.thc.data
         sql = '''INSERT INTO Interview (Clinic_Num,
-        THC_Num,) VALUE ({},{})'''.format(clinicNum,thcNum)
+        THC_Num) VALUE ({},{})'''.format(clinicNum,thcNum)
         cursor.execute(sql)
         conn.commit()
         cursor.close()

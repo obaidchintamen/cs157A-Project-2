@@ -1,14 +1,271 @@
 <html>
-    <head>
-        <title>Tinnitus/Hyperacusis Follow-Up Interview Form</title>
-    </head>
-    <body>
-            <form>
-                    <p>
-                        {{ form.clinic_number.label }}
-                        {{ form.clinic_number(size = 32, type = 'number') }}
-                    </p>
-            </form>
-        <button type="button">{{buttons.save}}</button>
-    </body>
+
+<head>
+    <title>Tinnitus/Hyperacusis Follow-Up Interview Form</title>
+</head>
+
+<body>
+    <h1>Tinnitus / Hyperacusis Follow-Up Interview Form</h1>
+    <form>
+        <p>
+            {{ form.clinic_number.label }}
+            {{ form.clinic_number(size = 32, type = 'number') }}
+        </p>
+        <p>
+            {{ form.first_name.label }}
+            {{ form.first_name(size = 32) }}
+        </p>
+        <p>
+            {{ form.last_name.label }}
+            {{ form.last_name(size = 32) }}
+        </p>
+
+        <p>
+            {{ form.dob.label }}
+            {{ form.dob(size = 32, type = 'date') }}
+        </p>
+        <p>
+            {{ form.ssn.label }}
+            {{ form.ssn(size = 32, type = 'text') }}
+        </p>
+        <p>
+            {{ form.insurance.label }}
+            {{ form.insurance(size = 32) }}
+        </p>
+
+
+
+        <p>
+            {{ form.category.label }}
+            {{ form.category(size = 32, type = 'text')}}
+        </p>
+
+        <p>
+            {{ form.date_of_init.label }}
+            {{ form.date_of_init(size = 32, type = 'date') }}
+        </p>
+        <p>
+            {{ form.date_of_instr.label }}
+            {{ form.date_of_instr(size = 32, type = 'date') }}
+        </p>
+        <p>
+            {{ form.SG.label }}
+            {{ form.SG(size = 32, type = 'text') }}
+        </p>
+        <p>
+            {{ form.HA.label }}
+            {{ form.HA(size = 32, type = 'text') }}
+        </p>
+        <p>
+            {{ form.FUQ_num.label }}
+            {{ form.FUQ_num(size = 32, type = 'text') }}
+        </p>
+        <p>
+            {{ form.month.label }}
+            {{ form.month(size = 32, type = 'date') }}
+        </p>
+        <p>
+            {{ form.thc.label }}
+            {{ form.thc(size = 32, type = 'number') }}
+        </p>
+        <p>
+            {{ form.tel.label }}
+            {{ form.tel(size = 32, type = 'text') }}
+        </p>
+    </form>
+    <br>
+    <p>-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    </p>
+    <h3>Tinnitus</h3>
+    <div>
+        Activities prevented or affected:
+        <br>
+        {{ form.concentration_t_init() }}
+        {{ form.concentration_t_init() }}
+        {{ form.concentration_t_init.label }}
+        &nbsp;&nbsp;
+        &nbsp;&nbsp;
+        {{ form.sleep_t_init() }}
+        {{ form.sleep_t_init() }}
+        {{ form.sleep_t_init.label }}
+        &nbsp;&nbsp;
+        &nbsp;&nbsp;
+        {{ form.qra_t_init() }}
+        {{ form.qra_t_init() }}
+        {{ form.qra_t_init.label }}
+        &nbsp;&nbsp;
+        &nbsp;&nbsp;
+        {{ form.work_t_init() }}
+        {{ form.work_t_init() }}
+        {{ form.work_t_init.label }}
+    </div>
+    <div>
+        {{ form.restaurants_t_init() }}
+        {{ form.restaurants_t_init() }}
+        {{ form.restaurants_t_init.label }}
+        &nbsp;&nbsp;
+        &nbsp;&nbsp;
+        &nbsp;&nbsp;
+        {{ form.sports_t_init() }}
+        {{ form.sports_t_init() }}
+        {{ form.sports_t_init.label }}
+        &nbsp;&nbsp;
+        &nbsp;&nbsp;
+        {{ form.social_t_init() }}
+        {{ form.social_t_init() }}
+        {{ form.social_t_init.label }}
+        &nbsp;&nbsp;
+        &nbsp;&nbsp;
+        {{ form.other_t_init() }}
+        {{ form.other_t_init() }}
+        {{ form.other_t_init.label }}
+    </div>
+    <br>
+    <div>
+        % of time when:&nbsp;&nbsp;
+        {{ form.aware_t_init.label }}
+        {{ form.aware_t_init(type = 'number') }}
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        {{ form.annoyed_t_init.label }}
+        {{ form.annoyed_t_init(type = 'number') }}
+        <br>
+        Has it changed
+    </div>
+    <div>
+        {{ form.severity_t_init.label }}
+        {{ form.severity_t_init(type = 'number') }}
+        <br>
+        {{ form.annoyance_t_init.label }}
+        {{ form.annoyance_t_init(type = 'number') }}
+        <br>
+        {{ form.effectonlife_t_init.label }}
+        {{ form.effectonlife_t_init(type = 'number') }}
+    </div>
+    <br>
+    <div>
+        "Bad Days":
+        {{ form.baddays_yes_t_init() }}
+        {{ form.baddays_yes_t_init.label }}
+
+        {{ form.baddays_no_t_init() }}
+        {{ form.baddays_no_t_init.label }}
+        <br>
+        {{ form.baddays_freq_t_init.label }}
+        {{ form.baddays_freq_t_init(type = 'number') }}
+        <br>
+        Are they: as frequent
+        {{ form.areFrequent_yes_t_init() }}
+        {{ form.areFrequent_yes_t_init.label }}
+        /
+        {{ form.areFrequent_no_t_init() }}
+        {{ form.areFrequent_no_t_init.label }}
+        &nbsp;&nbsp;
+        &nbsp;&nbsp;
+        as bad
+        {{ form.areBad_yes_t_init()}}
+        {{ form.areBad_yes_t_init.label }}
+        {{ form.areBad_no_t_init()}}
+        {{ form.areBad_no_t_init.label}}
+    </div>
+    <br>
+    <div>
+        Effect of sound:
+        {{ form.none_t_init() }}
+        {{ form.none_t_init.label }}
+
+        {{ form.louder_t_init() }}
+        {{ form.louder_t_init.label }}
+
+        {{ form.softer_t_init() }}
+        {{ form.softer_t_init.label }}
+        <br>
+        How long:
+        {{ form.mins_t_init() }}
+        {{ form.mins_t_init.label }}
+
+        {{ form.hours_t_init() }}
+        {{ form.hours_t_init.label }}
+
+        {{ form.days_t_init() }}
+        {{ form.days_t_init.label }}
+    </div>
+    <br>
+    <div>
+        Ear protection:
+        {{ form.overprotection_yes_t_init() }}
+        {{ form.overprotection_yes_t_init.label }}
+
+        {{ form.overprotection_no_t_init() }}
+        {{ form.overprotection_no_t_init.label }}
+        --------
+        {{ form.overprotection_freq_t_init.label }}
+        {{ form.overprotection_freq_t_init(type = 'number') }}
+        <br>
+        in quiet:
+        {{ form.quiet_yes_t_init() }}
+        {{ form.quiet_yes_t_init.label }}
+
+        {{ form.quiet_no_t_init() }}
+        {{ form.quiet_no_t_init.label }}
+    </div>
+    <div>
+        <br><br>
+        {{ form.treatments_spec_t_init.label }}<br>
+        {{ form.treatments_spec_t_init(rows = '5', cols = '50', type = 'textarea') }}
+        <br><br>
+        {{ form.comments_t_init.label }}<br>
+        {{ form.comments_t_init(rows = '5', cols = '50', type = 'textarea') }}
+    </div>
+
+    </div>
+    <p>-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    </p>
+    <h2>Hearing Problem</h2>
+    The Problem in general:
+    {{form.PinG_Same()}}
+    {{form.PinG_Same.label}}
+    {{form.PinG_Better()}}
+    {{form.PinG_Better.label}}
+    {{form.PinG_Worse()}}
+    {{form.PinG_Worse.label}}
+
+    <div>
+        Ranking Problems: <br>
+        {{ form.tinnitus_init.label }}
+        {{ form.tinnitus_init(type = 'number') }}
+        <br>
+        {{ form.sound_tolerance_init.label }}
+        {{ form.sound_tolerance_init(type = 'number') }}
+        <br>
+        {{ form.hearing_init.label }}
+        {{ form.hearing_init(type = 'number') }}
+    </div>
+    <p>-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    <br>
+    How would you feel if you had to give back your instruments<br>
+    Are you glad you started this program?
+    {{ form.feedback_yes() }}
+    {{ form.feedback_yes.label }}
+    &nbsp;&nbsp;
+    {{ form.feedback_no() }}
+    {{ form.feedback_no.label }}
+    &nbsp;&nbsp;
+    {{ form.feedback_ns() }}
+    {{ form.feedback_ns.label }}
+    
+    <p>-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    <br>
+    <br>
+    {{ form.mp_discussed.label}}
+    <br>
+    {{ form.mp_discussed(rows = '5', cols = '50', type = 'textarea') }}
+
+
+    <br>
+    <br>
+    <button type="button">{{buttons.save}}</button>
+</body>
+
 </html>
