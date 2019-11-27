@@ -12,7 +12,7 @@ import datetime
 
 mysql = MySQL()
 mysql.init_app(app)
-app.config['MYSQL_DATABASE_USER'] = 'obaid'
+app.config['MYSQL_DATABASE_USER'] = 'root'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'aaa123123123'
 app.config['MYSQL_DATABASE_DB'] = 'projectDB'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
@@ -99,8 +99,11 @@ def add_interview():
         x = row
 
     data = {
-        'data': "Visit ID: {}, Date: {}, THC#: {}, Patient Name: {} {}, Visit Number: {}".format(x[1], x[3], x[0], x[4], x[5], x[2])
+        'data': "Visit ID: {}, Date: {}, THC#: {}, Patient Name: {} {}, Visit Number: {}".format(x[1], x[2], x[0], x[4], x[5], x[3])
     }
+    # data = {
+    #     'data': x
+    # }
 
     cursor.close()
     conn.close()

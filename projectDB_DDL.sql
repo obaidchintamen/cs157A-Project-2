@@ -16,11 +16,13 @@ CREATE TABLE Patient(
 CREATE TABLE Visit(
 	Visit_ID INT NOT NULL AUTO_INCREMENT,
     THC INT NOT NULL,
-    Visit_Date Date NOT NULL,
-    Visit_Num INT NOT NULL,
+    -- Visit_Date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Visit_Date DATE,
+    Visit_Num INT,
     PRIMARY KEY(Visit_ID),
     FOREIGN KEY (THC) REFERENCES Patient(THC)
 );
+
 
 INSERT INTO Patient (First_Name, Last_Name, DOB, SSN, Insurance, Tel, Email) 
 VALUES('Kobe', 'Bryant', '2000-1-1', '111111111', 'Ins1', '4081111111', 'kobe.bryant@gmail.com');
