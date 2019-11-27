@@ -1,0 +1,205 @@
+<html>
+    <head>
+        <title>Tinnitus / Hyperacusis Initial Interview Form</title>
+    </head>
+    <body>
+        <h1>Tinnitus / Hyperacusis Initial Interview Form</h1>
+        <form>
+            <p>
+                {{ form.clinic_number.label }}
+                {{ form.clinic_number(size = 32, type = 'number') }}
+            </p>
+            <p>
+                {{ form.first_name.label }}
+                {{ form.first_name(size = 32) }}
+            </p>
+            <p>
+                {{ form.last_name.label }}
+                {{ form.last_name(size = 32) }}
+            </p>
+            <p>
+                {{ form.dob.label }}
+                {{ form.dob(size = 32, type = 'date') }}
+            </p>
+            <p>
+                {{ form.ssn.label }}
+                {{ form.ssn(size = 32, type = 'number') }}
+            </p>
+            <p>
+                {{ form.insurance.label }}
+                {{ form.insurance(size = 32) }}
+            </p>
+            <p>
+                {{ form.date.label }}
+                {{ form.date(size = 32, type = 'date') }}
+            </p>
+            <p>
+                {{ form.thc.label }}
+                {{ form.thc(size = 32, type = 'number') }}
+            </p>
+            <p>
+                {{ form.telephone.label }}
+                {{ form.telephone(size = 32, type = 'number') }}
+            </p>
+            <p>
+                {{ form.email.label }}
+                {{ form.email(size = 32) }}
+            </p>
+            <br>
+
+            <h2>Tinnitus</h2>   
+            
+            <div>
+                {{ form.re() }}
+                {{ form.re.label }}
+        
+                {{ form.le() }}
+                {{ form.le.label }}
+        
+                {{ form.both() }}
+                {{ form.both.label }}
+        
+                {{ form.head() }}
+                {{ form.head.label }}
+        
+                --------
+        
+                {{ form.intermittent() }}
+                {{ form.intermittent.label }}
+        
+                {{ form.constant() }}
+                {{ form.constant.label }}
+            </div>
+            <div>
+                {{ form.gradual() }}
+                {{ form.gradual.label }}
+
+                {{ form.sudden() }}
+                {{ form.sudden.label }}
+
+                --------
+
+                {{ form.when.label }}
+                {{ form.when() }}
+
+            </div>
+            <br>
+            <div>
+                Fluctuations in volume:
+                {{ form.fluctuations_volume_yes() }}
+                {{ form.fluctuations_volume_yes.label }}
+
+                {{ form.fluctuations_volume_no() }}
+                {{ form.fluctuations_volume_no.label }}   
+                
+                <br><br>
+
+                {{ form.description_t_sound.label }}<br>
+                {{ form.description_t_sound(rows = '5', cols = '50', type = 'textarea') }}  
+
+            </div>
+            <br>
+            <div>
+                Activities prevented or affected:
+                <br>
+                {{ form.concentration_t_init() }}
+                {{ form.concentration_t_init.label }}
+            
+                {{ form.sleep_t_init() }}
+                {{ form.sleep_t_init.label }}
+            
+                {{ form.qra_t_init() }}
+                {{ form.qra_t_init.label }}
+            
+                {{ form.work_t_init() }}
+                {{ form.work_t_init.label }}
+            </div>
+            <div>
+                {{ form.restaurants_t_init() }}
+                {{ form.restaurants_t_init.label }}
+            
+                {{ form.sports_t_init() }}
+                {{ form.sports_t_init.label }}
+            
+                {{ form.social_t_init() }}
+                {{ form.social_t_init.label }}
+            
+                {{ form.other_t_init() }}
+                {{ form.other_t_init.label }}
+            </div>    
+            <br>
+            <div>
+                % of time when: 
+                {{ form.aware_t_init.label }}
+                {{ form.aware_t_init(type = 'number') }}
+
+                {{ form.annoyed_t_init.label }}
+                {{ form.annoyed_t_init(type = 'number') }}                
+            </div>  
+            <div>
+                {{ form.severity_t_init.label }} 
+                {{ form.severity_t_init(type = 'number') }}
+                <br>
+                {{ form.annoyance_t_init.label }}  
+                {{ form.annoyance_t_init(type = 'number') }}
+                <br>
+                {{ form.effectonlife_t_init.label }}  
+                {{ form.effectonlife_t_init(type = 'number') }}              
+            </div>
+            <br>
+            <div>
+                "Bad Days": 
+                {{ form.baddays_yes_t_init() }}
+                {{ form.baddays_yes_t_init.label }}
+
+                {{ form.baddays_no_t_init() }}
+                {{ form.baddays_no_t_init.label }} 
+                <br>
+                {{ form.baddays_freq_t_init.label }}  
+                {{ form.baddays_freq_t_init(type = 'number') }}  
+            </div>
+            <br>
+            <div>
+                Effect of sound:
+                {{ form.none_t_init() }}
+                {{ form.none_t_init.label }}
+
+                {{ form.louder_t_init() }}
+                {{ form.louder_t_init.label }}
+
+                {{ form.softer_t_init() }}
+                {{ form.softer_t_init.label }} 
+                <br>
+                How long:
+                {{ form.mins_t_init() }}
+                {{ form.mins_t_init.label }}
+
+                {{ form.hours_t_init() }}
+                {{ form.hours_t_init.label }}
+
+                {{ form.days_t_init() }}
+                {{ form.days_t_init.label }}                               
+            </div>
+            <br>
+            <div>
+                Ear protection:
+                {{ form.overprotection_yes_t_init() }}
+                {{ form.overprotection_yes_t_init.label }}
+
+                {{ form.overprotection_no_t_init() }}
+                {{ form.overprotection_no_t_init.label }} 
+                --------
+                {{ form.overprotection_freq_t_init.label }}  
+                {{ form.overprotection_freq_t_init(type = 'number') }}  
+                <br>
+                in quiet:
+                {{ form.quiet_yes_t_init() }}
+                {{ form.quiet_yes_t_init.label }}
+
+                {{ form.quiet_no_t_init() }}
+                {{ form.quiet_no_t_init.label }}                 
+            </div>
+        </form>
+        <button type="button">{{buttons.save}}</button>
+    </body>
+</html>

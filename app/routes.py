@@ -1,6 +1,8 @@
 from flask import Flask, render_template, url_for, redirect, flash
 from flask_wtf import FlaskForm
 from app.forms import AddVisitForm
+from app.forms import AddInterviewForm
+from app.forms import AddInitialInterviewForm
 from app import app
 
 from flaskext.mysql import MySQL
@@ -14,12 +16,14 @@ conn = mysql.connect()
 
 @app.route('/index')
 def index():
-    buttons = {'add_visit':'add visit', 
-    'add_interview':'add interview', 
-    'lookup_visit':'lookup visit',
-    'other':'other'}
+    buttons = {
+        'add_visit':'Add Visit', 
+        'add_interview':'Add Interview', 
+        'lookup_visit':'Lookup Visit',
+        'other':'Other',
+        }
     
-    return render_template('index.html', buttons=buttons)
+    return render_template('index.html', buttons = buttons)
 # buttons.add_visit = 'add visit'
 #buttons.key -> value
 
@@ -37,3 +41,23 @@ def add_visit():
 
 
 conn.close()
+
+
+@app.route('/add_interview')
+def add_interview():
+    buttons = {
+        'initial_followup':'Initial/Followup',
+        'thi':'THI',
+        'tfi':'TFI',
+        'add_md':'Add MD'
+    }
+    form = AddInterviewForm()
+    return render_template('add_interview.html', form = form, buttons = buttons)
+
+@app.route('/init_interview')
+def init_interview():
+    buttons = {
+        'save':'Save'
+    }
+    form = AddInitialInterviewForm()
+    return render_template('init_interview.html', form = form, buttons = buttons)

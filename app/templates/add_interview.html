@@ -3,9 +3,32 @@
         <title>Add Interview</title>
     </head>
     <body>
+        <h1>Add Interview</h1>
+        <form>
+                <p>
+                    {{ form.visit_ID.label }}<br>
+                    {{ form.visit_ID(size=32) }}
+                </p>
+                <p>
+                    {{ form.date.label }}<br>
+                    {{ form.date(size=32) }}
+                </p>
+                <p>
+                    {{ form.thc_number.label }}<br>
+                    {{ form.thc_number(size=32) }}
+                </p>
+                <p>
+                    {{ form.patient_ID.label }}<br>
+                    {{ form.patient_ID(size=32) }}
+                </p>
+                <p>
+                    {{ form.visit_number.label }}<br>
+                    {{ form.visit_number(size=32) }}
+                </p>
+        </form>
         <button type="button">{{buttons.initial_followup}}</button>
         <button type="button">{{buttons.thi}}</button>
         <button type="button">{{buttons.tfi}}</button>
         <button type="button">{{buttons.add_md}}</button>
     </body>
-</html> 
+</html>

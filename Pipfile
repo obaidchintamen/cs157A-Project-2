@@ -7,10 +7,6 @@ verify_ssl = true
 v = {editable = true,version = "*"}
 
 [packages]
-flask = "*"
-python-dotenv = "*"
-flask-mysql = "*"
-flask-wtf = "*"
 
 [requires]
 python_version = "3.7"
