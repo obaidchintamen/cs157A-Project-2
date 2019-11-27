@@ -3,6 +3,7 @@ from flask_wtf import FlaskForm
 from app.forms import AddVisitForm
 from app.forms import AddInterviewForm
 from app.forms import AddInitialInterviewForm
+from app.forms import AddFollowupInterviewForm
 from app import app
 
 @app.route('/index')
@@ -41,3 +42,11 @@ def init_interview():
     }
     form = AddInitialInterviewForm()
     return render_template('init_interview.html', form = form, buttons = buttons)
+
+@app.route('/followup_interview')
+def followup_interview():
+    buttons = {
+        'save':'Save'
+    }
+    form = AddFollowupInterviewForm()
+    return render_template('followup_interview.html', form = form, buttons = buttons)

@@ -84,9 +84,12 @@ class AddInitialInterviewForm(FlaskForm):
     comments_spec_t_init = StringField('Any other T specific treatments:', validators = [])
     problem_t_init = StringField('Why is T a problem?', validators = [])   
     
-    
-
-
-
-
-    
+class AddFollowupInterviewForm(FlaskForm):
+    #Beginning Info
+    clinic_number = IntegerField('Clinic #:', validators = [])
+    first_name = StringField('First Name:', validators = [])
+    last_name = StringField('Last Name:', validators = [])
+    dob = DateField('DOB:', validators = [])
+    ssn = IntegerField('SSN:', validators = [])
+    insurance = StringField('Insurance:', validators = [])
+    date = DateField('Date:', validators = [])
