@@ -4,7 +4,7 @@ from wtforms.validators import DataRequired, Required
 
 class AddVisitForm(FlaskForm):
     visit_ID = StringField('Visit ID', validators = [])
-    patient_ID = StringField('Pateint Number',validators = [])
+    patient_ID = StringField('Pateint Number',validators = [])  
     thc_number = IntegerField('THC #',validators = [])
     date = DateField('Date',validators = [])
 
@@ -85,11 +85,26 @@ class AddInitialInterviewForm(FlaskForm):
     problem_t_init = StringField('Why is T a problem?', validators = [])   
     
 class AddFollowupInterviewForm(FlaskForm):
-    #Beginning Info
+    # Beginning Info
     clinic_number = IntegerField('Clinic #:', validators = [])
     first_name = StringField('First Name:', validators = [])
     last_name = StringField('Last Name:', validators = [])
     dob = DateField('DOB:', validators = [])
-    ssn = IntegerField('SSN:', validators = [])
+    ssn = StringField('SSN:', validators = [])
     insurance = StringField('Insurance:', validators = [])
     date = DateField('Date:', validators = [])
+
+    # followup own question
+    category = StringField('GATEGORY: ', validators = [])
+    date_of_init = DateField('Date of init. couns.: ', validators = [])
+    date_of_instr = DateField('Date of instr. fitt.: ', validators = [])
+    SG = StringField('SG: ', validators = [])
+    HA = StringField('HA: ', validators = [])
+    FUQ_num = StringField('FUQ #: ', validators = [])
+    month = DateField('Month #:', validators = [])
+    thc = IntegerField('T&HC:', validators = [])
+    tel = StringField('tel: ', validators = [])
+
+    # Tinn
+    
+    

@@ -1,14 +1,84 @@
 <html>
-    <head>
-        <title>Tinnitus/Hyperacusis Follow-Up Interview Form</title>
-    </head>
-    <body>
-            <form>
-                    <p>
-                        {{ form.clinic_number.label }}
-                        {{ form.clinic_number(size = 32, type = 'number') }}
-                    </p>
-            </form>
-        <button type="button">{{buttons.save}}</button>
-    </body>
+
+<head>
+    <title>Tinnitus/Hyperacusis Follow-Up Interview Form</title>
+</head>
+
+<body>
+    <h1>Tinnitus / Hyperacusis Follow-Up Interview Form</h1>
+    <form>
+        <p>
+            {{ form.clinic_number.label }}
+            {{ form.clinic_number(size = 32, type = 'number') }}
+        </p>
+        <p>
+            {{ form.first_name.label }}
+            {{ form.first_name(size = 32) }}
+        </p>
+        <p>
+            {{ form.last_name.label }}
+            {{ form.last_name(size = 32) }}
+        </p>
+
+        <p>
+            {{ form.dob.label }}
+            {{ form.dob(size = 32, type = 'date') }}
+        </p>
+        <p>
+            {{ form.ssn.label }}
+            {{ form.ssn(size = 32, type = 'text') }}
+        </p>
+        <p>
+            {{ form.insurance.label }}
+            {{ form.insurance(size = 32) }}
+        </p>
+
+
+
+        <p>
+            {{ form.category.label }}
+            {{ form.category(size = 32, type = 'text')}}
+        </p>
+
+        <p>
+            {{ form.date_of_init.label }}
+            {{ form.date_of_init(size = 32, type = 'date') }}
+        </p>
+        <p>
+            {{ form.date_of_instr.label }}
+            {{ form.date_of_instr(size = 32, type = 'date') }}
+        </p>
+        <p>
+            {{ form.SG.label }}
+            {{ form.SG(size = 32, type = 'text') }}
+        </p>
+        <p>
+            {{ form.HA.label }}
+            {{ form.HA(size = 32, type = 'text') }}
+        </p>
+        <p>
+            {{ form.FUQ_num.label }}
+            {{ form.FUQ_num(size = 32, type = 'text') }}
+        </p>
+        <p>
+            {{ form.month.label }}
+            {{ form.month(size = 32, type = 'date') }}
+        </p>
+        <p>
+            {{ form.thc.label }}
+            {{ form.thc(size = 32, type = 'number') }}
+        </p>
+        <p>
+            {{ form.tel.label }}
+            {{ form.tel(size = 32, type = 'text') }}
+        </p>
+    </form>
+    <br>
+    <h3>Tinnitus</h3> 
+    
+
+
+    <button type="button">{{buttons.save}}</button>
+</body>
+
 </html>
