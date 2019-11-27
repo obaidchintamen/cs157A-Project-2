@@ -11,16 +11,16 @@
                 {{ form.visit_ID(size=32) }}
             </p>
             <p>
-                {{ form.patient_ID.label }}<br>
-                {{ form.patient_ID(size=32) }}
-            </p>
-            <p>
                 {{ form.thc_number.label }}<br>
                 {{ form.thc_number(size=32) }}
             </p>
             <p>
                 {{ form.date.label }}<br>
-                {{ form.date(size=32) }}
+                {{ form.date(size=32, type = 'text') }}
+            </p>
+            <p>
+                {{ form.visit_num.label }}<br>
+                {{ form.visit_num(size=32) }}
             </p>
             <!-- <p>{{ form.submit() }}</p> -->
             <input type="submit" value="submit">

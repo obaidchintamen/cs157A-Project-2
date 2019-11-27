@@ -4,8 +4,9 @@
     </head>
     <body>
         <h1>Interview Screen</h1>
-        <p>{{data.data}}</p>
-        <!-- <form>
+        
+        <form method="POST" action="{{url_for('test')}}">
+                {{ form.hidden_tag() }}
                 <p>
                     {{ form.visit_ID.label }}<br>
                     {{ form.visit_ID(size = 32) }}
@@ -26,10 +27,7 @@
                     {{ form.visit_number.label }}<br>
                     {{ form.visit_number(size = 32, type = 'number') }}
                 </p>
-        </form> -->
-        <a href = "{{url_for('init_interview')}}"><button type = "button">{{buttons.initial_followup}}</button></a>
-        <button type = "button">{{buttons.thi}}</button>
-        <button type = "button">{{buttons.tfi}}</button>
-        <button type = "button">{{buttons.add_md}}</button>
+                <input type="submit" value="submit">
+        </form>
     </body>
 </html>
