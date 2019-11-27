@@ -17,7 +17,7 @@ app.config['MYSQL_DATABASE_PASSWORD'] = 'aaa123123123'
 app.config['MYSQL_DATABASE_DB'] = 'projectDB'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 
-
+@app.route('/')
 @app.route('/index')
 def index():
     buttons = {
@@ -149,7 +149,8 @@ def init_interview():
         conn.commit()
         cursor.close()
         conn.close()
-        return "submitted"
+        
+        return redirect('/followup_interview')
 
     return render_template('init_interview.html', form = form, buttons = buttons, data = data)
 
@@ -168,6 +169,7 @@ def followup_interview():
         'save':'Save'
     }
     form = AddFollowupInterviewForm()
+
     return render_template('followup_interview.html', form = form, buttons = buttons)
 
 
