@@ -1,10 +1,20 @@
-from flask import Flask, render_template, url_for, redirect
+from flask import Flask, render_template, url_for, redirect, flash
 from flask_wtf import FlaskForm
-from app.forms import AddVisitForm
-from app.forms import AddInterviewForm
-from app.forms import AddInitialInterviewForm
-from app.forms import AddFollowupInterviewForm
+from app.forms import AddVisitForm, AddInterviewForm, AddInitialInterviewForm, AddFollowupInterviewForm
 from app import app
+
+from flaskext.mysql import MySQL
+from config import Config
+import os
+
+mysql = MySQL()
+mysql.init_app(app)
+app.config['MYSQL_DATABASE_USER'] = 'root'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'aaa123123123'
+app.config['MYSQL_DATABASE_DB'] = 'projectDB'
+app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+
+conn = mysql.connect()
 
 @app.route('/index')
 def index():
@@ -14,15 +24,24 @@ def index():
         'lookup_visit':'Lookup Visit',
         'other':'Other',
         }
-    
     return render_template('index.html', buttons = buttons)
-# buttons.add_visit = 'add visit'
-#buttons.key -> value
 
-@app.route('/add_visit')
+
+@app.route('/add_visit', methods=['GET', 'POST'])
 def add_visit():
+    buttons = {
+        'add':'Add Visit'
+    }
     form = AddVisitForm()
-    return render_template('add_visit.html', form = form)
+    cursor = conn.cursor()
+    if form.validate_on_submit():
+        visitId = form.visit_ID.data
+        patientId = form.patient_ID.data
+
+        return 'Submitted values: \n Visit ID : {} \n Patient ID : {}'.format(visitId, patientId)
+    cursor.close()
+    return render_template('add_visit.html', butons = buttons, form = form)
+
 
 @app.route('/add_interview')
 def add_interview():
@@ -35,7 +54,7 @@ def add_interview():
     form = AddInterviewForm()
     return render_template('add_interview.html', form = form, buttons = buttons)
 
-@app.route('/init_interview')
+@app.route('/init_interview', methods = ['GET', 'POST'])
 def init_interview():
     buttons = {
         'save':'Save'
@@ -50,3 +69,7 @@ def followup_interview():
     }
     form = AddFollowupInterviewForm()
     return render_template('followup_interview.html', form = form, buttons = buttons)
+
+
+
+conn.close()

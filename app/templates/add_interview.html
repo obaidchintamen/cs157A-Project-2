@@ -7,28 +7,28 @@
         <form>
                 <p>
                     {{ form.visit_ID.label }}<br>
-                    {{ form.visit_ID(size=32) }}
+                    {{ form.visit_ID(size = 32) }}
                 </p>
                 <p>
                     {{ form.date.label }}<br>
-                    {{ form.date(size=32) }}
+                    {{ form.date(size = 32, type = 'date') }}
                 </p>
                 <p>
                     {{ form.thc_number.label }}<br>
-                    {{ form.thc_number(size=32) }}
+                    {{ form.thc_number(size = 32, type = 'number') }}
                 </p>
                 <p>
                     {{ form.patient_ID.label }}<br>
-                    {{ form.patient_ID(size=32) }}
+                    {{ form.patient_ID(size = 32, type = 'number') }}
                 </p>
                 <p>
                     {{ form.visit_number.label }}<br>
-                    {{ form.visit_number(size=32) }}
+                    {{ form.visit_number(size = 32, type = 'number') }}
                 </p>
         </form>
-        <button type="button">{{buttons.initial_followup}}</button>
-        <button type="button">{{buttons.thi}}</button>
-        <button type="button">{{buttons.tfi}}</button>
-        <button type="button">{{buttons.add_md}}</button>
+        <a href = "{{url_for('init_interview')}}"><button type = "button">{{buttons.initial_followup}}</button></a>
+        <button type = "button">{{buttons.thi}}</button>
+        <button type = "button">{{buttons.tfi}}</button>
+        <button type = "button">{{buttons.add_md}}</button>
     </body>
 </html>
