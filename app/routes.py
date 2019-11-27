@@ -40,7 +40,7 @@ def add_visit():
 
         return 'Submitted values: \n Visit ID : {} \n Patient ID : {}'.format(visitId, patientId)
     cursor.close()
-    return render_template('add_visit.html', butons = buttons, form = form)
+    return render_template('add_visit.html', buttons = buttons, form = form)
 
 
 @app.route('/add_interview')
