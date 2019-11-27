@@ -9,8 +9,8 @@ import os
 
 mysql = MySQL()
 mysql.init_app(app)
-app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'Siri4634!'
+app.config['MYSQL_DATABASE_USER'] = 'obaid'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'aaa123123123'
 app.config['MYSQL_DATABASE_DB'] = 'projectDB'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 
@@ -56,6 +56,9 @@ def add_interview():
 
 @app.route('/init_interview', methods = ['GET', 'POST'])
 def init_interview():
+    buttons = {
+        'save':'Save'
+    }
     form = AddInitialInterviewForm()
     return render_template('init_interview.html', form = form, buttons = buttons)
 
