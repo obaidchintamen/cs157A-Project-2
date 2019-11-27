@@ -1,18 +1,19 @@
 from flask import Flask, render_template, url_for, redirect, flash
 from flask_wtf import FlaskForm
-from app.forms import AddVisitForm
-from app.forms import AddInterviewForm
-from app.forms import AddInitialInterviewForm
-from app.forms import AddFollowupInterviewForm
+from app.forms import AddVisitForm, AddInterviewForm, AddInitialInterviewForm, AddFollowupInterviewForm
 from app import app
 
 from flaskext.mysql import MySQL
+from config import Config
+import os
+
 mysql = MySQL()
 mysql.init_app(app)
-app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'Newssigmabob111!'
-app.config['MYSQL_DATABASE_DB'] = 'projectDB'
-app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+app.config['MYSQL_DATABASE_USER'] = os.environ.get('MYSQL_DATABASE_USER')
+app.config['MYSQL_DATABASE_PASSWORD'] = os.environ.get('MYSQL_DATABASE_PASSWORD')
+app.config['MYSQL_DATABASE_DB'] = os.environ.get('MYSQL_DATABASE_DB')
+app.config['MYSQL_DATABASE_HOST'] = os.environ.get('MYSQL_DATABASE_HOST')
+
 conn = mysql.connect()
 
 @app.route('/index')
@@ -23,10 +24,8 @@ def index():
         'lookup_visit':'Lookup Visit',
         'other':'Other',
         }
-    
     return render_template('index.html', buttons = buttons)
-# buttons.add_visit = 'add visit'
-#buttons.key -> value
+
 
 @app.route('/add_visit', methods=['GET', 'POST'])
 def add_visit():
@@ -62,8 +61,6 @@ def init_interview():
     }
     form = AddInitialInterviewForm()
     return render_template('init_interview.html', form = form, buttons = buttons)
-<<<<<<< HEAD
-=======
 
 @app.route('/followup_interview')
 def followup_interview():
@@ -72,4 +69,3 @@ def followup_interview():
     }
     form = AddFollowupInterviewForm()
     return render_template('followup_interview.html', form = form, buttons = buttons)
->>>>>>> d066d80783663b0e7ba59e44923a6e3e2a910d68

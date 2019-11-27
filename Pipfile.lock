@@ -1,11 +1,7 @@
 {
     "_meta": {
         "hash": {
-<<<<<<< HEAD
-            "sha256": "8da136170729431694f5459426d67b80d81158f5d3d5b5054286904dc2a76e66"
-=======
-            "sha256": "11bf22d8a86e7a61aa7ccf30caf3a6b2fafcca9b18f0a0a99cc9af1ce7f783dd"
->>>>>>> d066d80783663b0e7ba59e44923a6e3e2a910d68
+            "sha256": "7588cc48ed418f80c1065ac7d9f40c6a1c0f471b4542f32bec2ea140cc46ba50"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -32,22 +28,8 @@
                 "sha256:13f9f196f330c7c2c5d7a5cf91af894110ca0215ac051b5844701f2bfd934d52",
                 "sha256:45eb5a6fd193d6cf7e0cf5d8a5b31f83d5faae0293695626f539a823e93b13f6"
             ],
-<<<<<<< HEAD
-            "index": "pypi",
             "version": "==1.1.1"
         },
-        "flask-mysql": {
-            "hashes": [
-                "sha256:33389b2e74d7dccaf749a42d22dc6663e7f1467941c680ab215e1df51b5ca2d3",
-                "sha256:f1bc82e42fdce5d53cb31eac3a17a29241a8f82f6ceac9eaa95ab4cdeefafc9a"
-            ],
-            "index": "pypi",
-            "version": "==1.4.0"
-        },
-=======
-            "version": "==1.1.1"
-        },
->>>>>>> d066d80783663b0e7ba59e44923a6e3e2a910d68
         "flask-wtf": {
             "hashes": [
                 "sha256:5d14d55cfd35f613d99ee7cba0fc3fbbe63ba02f544d349158c14ca15561cc36",
@@ -103,14 +85,6 @@
             ],
             "version": "==1.1.1"
         },
-<<<<<<< HEAD
-        "pymysql": {
-            "hashes": [
-                "sha256:3943fbbbc1e902f41daf7f9165519f140c4451c179380677e6a848587042561a",
-                "sha256:d8c059dcd81dedb85a9f034d5e22dcb4442c0b201908bede99e306d65ea7c8e7"
-            ],
-            "version": "==0.9.3"
-        },
         "python-dotenv": {
             "hashes": [
                 "sha256:debd928b49dbc2bf68040566f55cdb3252458036464806f4094487244e2a4093",
@@ -119,8 +93,6 @@
             "index": "pypi",
             "version": "==0.10.3"
         },
-=======
->>>>>>> d066d80783663b0e7ba59e44923a6e3e2a910d68
         "werkzeug": {
             "hashes": [
                 "sha256:7280924747b5733b246fe23972186c6b348f9ae29724135a6dfc1e53cea433e7",
