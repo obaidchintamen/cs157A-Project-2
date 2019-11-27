@@ -70,7 +70,7 @@ ALTER TABLE `Visit` MODIFY COLUMN `Visit_ID` INT NOT NULL AUTO_INCREMENT;
 
 
 CREATE TABLE Interview(
-	Interview_ID INT NOT NULL auto_increment,
+	Interview_ID INT NOT NULL AUTO_INCREMENT,
     PRIMARY KEY (Interview_ID),
     Visit_ID INT,
     FOREIGN KEY (Visit_ID) REFERENCES Visit(Visit_ID),
@@ -133,9 +133,9 @@ CREATE TABLE Interview(
 
 
 CREATE TABLE Initial_Interview(
-	Interview_ID INT NOT NULL,
-    PRIMARY KEY(Interview_ID),
-    FOREIGN KEY (Interview_ID) REFERENCES Interview(Interview_ID),
+	ID INT NOT NULL AUTO_INCREMENT,
+    PRIMARY KEY(ID),
+    FOREIGN KEY (ID) REFERENCES Interview(Interview_ID),
     T_Onset VARCHAR(25),
     T_Fluctuations_In_Volume BOOLEAN,
     T_Description_Of_T_Sound VARCHAR(35),
@@ -149,8 +149,8 @@ CREATE TABLE Initial_Interview(
     HL_Hearing_Aid_Type BOOLEAN
 );
 
-CREATE TABLE Follow_Up_Interview(
-	Interview_ID INT,
+CREATE TABLE Followup_Interview(
+	ID INT NOT NULL AUTO_INCREMENT,
     Category BOOLEAN,
     Date_Of_Initial_Couns DATE,
     Date_Of_Instr_Fitt DATE,
@@ -158,11 +158,12 @@ CREATE TABLE Follow_Up_Interview(
 	HA VARCHAR(25),
 	FUQ INT,
 	Month INT,
-	SG VARCHAR(25),
 	T_Percent_Aware BOOLEAN,
 	T_Percent_Annoyed BOOLEAN,
 	S_Bad BOOLEAN,
 	HL_The_Problem_In_General VARCHAR(25),
 	Feedback VARCHAR(25),
-	Main_Disscussed VARCHAR(25)
+	Main_Disscussed VARCHAR(25),
+    PRIMARY KEY(ID),
+    FOREIGN KEY (ID) REFERENCES Interview(Interview_ID)
 );

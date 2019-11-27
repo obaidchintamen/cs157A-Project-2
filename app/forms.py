@@ -1,6 +1,15 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, IntegerField, DateField, BooleanField, TextAreaField, SubmitField, validators
-from wtforms.validators import InputRequired, Optional, NumberRange, Email, Length
+from wtforms import StringField, IntegerField, SubmitField, DateField, validators
+from wtforms.validators import DataRequired, InputRequired, NumberRange, Email, Optional
+
+class AddVisitForm(FlaskForm):
+    visit_ID = IntegerField('Visit ID', validators=[DataRequired()])
+    patient_ID = IntegerField('Pateint Number',validators=[DataRequired()])
+    thc_number = IntegerField('TBH #',validators=[DataRequired()])
+    date = DateField('Date',validators=[DataRequired()], format = '%Y-%m-%d')
+    submit = SubmitField('Submit')
+from wtforms import StringField, IntegerField, DateField, BooleanField, TextAreaField, validators
+from wtforms.validators import DataRequired, Required
 
 class AddVisitForm(FlaskForm):
     visit_ID = StringField('Visit ID', validators = [InputRequired()])
@@ -156,3 +165,15 @@ class AddInitialInterviewForm(FlaskForm):
     next_visit_init = DateField('Next Visit:', validators = [InputRequired()])
 
     submit = SubmitField('Save', validators = [])
+    comments_spec_t_init = StringField('Any other T specific treatments:', validators = [])
+    problem_t_init = StringField('Why is T a problem?', validators = [])   
+    
+class AddFollowupInterviewForm(FlaskForm):
+    #Beginning Info
+    clinic_number = IntegerField('Clinic #:', validators = [])
+    first_name = StringField('First Name:', validators = [])
+    last_name = StringField('Last Name:', validators = [])
+    dob = DateField('DOB:', validators = [])
+    ssn = IntegerField('SSN:', validators = [])
+    insurance = StringField('Insurance:', validators = [])
+    date = DateField('Date:', validators = [])
