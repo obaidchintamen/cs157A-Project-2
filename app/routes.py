@@ -3,6 +3,7 @@ from flask_wtf import FlaskForm
 from app.forms import AddVisitForm
 from app.forms import AddInterviewForm
 from app.forms import AddInitialInterviewForm
+from app.forms import AddFollowupInterviewForm
 from app import app
 
 from flaskext.mysql import MySQL
@@ -61,3 +62,14 @@ def init_interview():
     }
     form = AddInitialInterviewForm()
     return render_template('init_interview.html', form = form, buttons = buttons)
+<<<<<<< HEAD
+=======
+
+@app.route('/followup_interview')
+def followup_interview():
+    buttons = {
+        'save':'Save'
+    }
+    form = AddFollowupInterviewForm()
+    return render_template('followup_interview.html', form = form, buttons = buttons)
+>>>>>>> d066d80783663b0e7ba59e44923a6e3e2a910d68
