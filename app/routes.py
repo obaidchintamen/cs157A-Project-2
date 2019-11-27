@@ -41,11 +41,11 @@ def add_visit():
 
         visitId = form.visit_ID.data
         thc = form.thc_number.data
-        date = form.date.data
+        # date = form.date.data
         visitNum = form.visit_num.data
 
-        sql = '''INSERT INTO Visit (THC, Visit_Date, Visit_Num) 
-        VALUES ({},{},{})'''.format(thc,date,visitNum)
+        sql = '''INSERT INTO Visit (THC, Visit_Num) 
+        VALUES ({},{})'''.format(thc,visitNum)
         
         cursor.execute(sql)
         conn.commit()
@@ -176,5 +176,20 @@ def followup_interview():
     return render_template('followup_interview.html', form = form, buttons = buttons)
 
 
-
+@app.route('/lookup_visit')
+def lookup_visit():
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    sql = '''SELECT First_Name FROM Visit 
+            NATURAL JOIN Patient 
+            WHERE Visit_Num = 1 
+            ORDER BY THC DESC LIMIT 10 '''
+    cursor.execute(sql)
+    x = []
+    for row in cursor.fetchall():
+        x.append(row)
+    data = {
+        'data':x
+    }
+    return render_template('lookup_visit.html', data = data)
 
