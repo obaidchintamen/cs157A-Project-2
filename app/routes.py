@@ -12,7 +12,7 @@ import datetime
 
 mysql = MySQL()
 mysql.init_app(app)
-app.config['MYSQL_DATABASE_USER'] = 'obaid'
+app.config['MYSQL_DATABASE_USER'] = 'root'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'aaa123123123'
 app.config['MYSQL_DATABASE_DB'] = 'projectDB'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
@@ -101,9 +101,6 @@ def add_interview():
     data = {
         'data': "Visit ID: {}, Date: {}, THC#: {}, Patient Name: {} {}, Visit Number: {}".format(x[1], x[2], x[0], x[4], x[5], x[3])
     }
-    # data = {
-    #     'data': x
-    # }
 
     cursor.close()
     conn.close()
@@ -152,6 +149,16 @@ def init_interview():
         conn.commit()
         cursor.close()
         conn.close()
+
+        # conn = mysql.connect()
+        # cursor = conn.cursor()
+
+        # firstname = form.first_name.data
+        # lastname = form.last_name.data
+
+        # sql = '''INSERT INTO Patient(Fie)
+
+
         
         return redirect('/followup_interview')
 
