@@ -143,6 +143,7 @@ def init_interview():
     
         clinicNum = form.clinic_number.data
         thcNum = form.thc.data
+
         sql = '''INSERT INTO Interview (Clinic_Num,
         THC_Num) VALUE ({},{})'''.format(clinicNum,thcNum)
         cursor.execute(sql)
@@ -156,7 +157,7 @@ def init_interview():
         # firstname = form.first_name.data
         # lastname = form.last_name.data
 
-        # sql = '''INSERT INTO Patient(Fie)
+        # sql = '''INSERT INTO Patient(THC, First_Name, Last_Name, DOB, SSN, Insurance, Tel, Email)
 
 
         
@@ -173,12 +174,16 @@ def init_interview():
 #     return render_template('test.html', form = form, )
 
 
-@app.route('/followup_interview')
+@app.route('/followup_interview' , methods = ['GET', 'POST'])
 def followup_interview():
     buttons = {
         'save':'Save'
     }
     form = AddFollowupInterviewForm()
+    # if form.validate_on_submit():
+    #     return redirect('/index')
+    # if request.method == "POST":
+    #     return redirect('/index')
 
     return render_template('followup_interview.html', form = form, buttons = buttons)
 

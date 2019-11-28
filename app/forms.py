@@ -198,16 +198,16 @@ class AddFollowupInterviewForm(FlaskForm):
     other_t_init = BooleanField('Other', validators = [Optional()])
     
     # percent_time_when_aware and annoyed
-    aware_t_init = IntegerField('Aware(1st)', validators = [InputRequired(), NumberRange(min = 0, max = 100, message = "Number must be between 0 and 100")])
-    annoyed_t_init = IntegerField('Annoyed(1st)', validators = [InputRequired(), NumberRange(min = 0, max = 100, message = "Number must be between 0 and 100")])
-    severity_t_init = IntegerField('Severity (1-10)', validators = [InputRequired(), NumberRange(min = 0, max = 10, message = "Number must be between 0 and 10")])
-    annoyance_t_init = IntegerField('Annoyance (1-10)', validators = [InputRequired(), NumberRange(min = 0, max = 10, message = "Number must be between 0 and 10")])
-    effectonlife_t_init = IntegerField('Effect on Life (1-10)', validators = [InputRequired(), NumberRange(min = 0, max = 10, message = "Number must be between 0 and 10")])
+    aware_t_init = IntegerField('Aware(1st)', validators = [Optional(), NumberRange(min = 0, max = 100, message = "Number must be between 0 and 100")])
+    annoyed_t_init = IntegerField('Annoyed(1st)', validators = [Optional(), NumberRange(min = 0, max = 100, message = "Number must be between 0 and 100")])
+    severity_t_init = IntegerField('Severity (1-10)', validators = [Optional(), NumberRange(min = 0, max = 10, message = "Number must be between 0 and 10")])
+    annoyance_t_init = IntegerField('Annoyance (1-10)', validators = [Optional(), NumberRange(min = 0, max = 10, message = "Number must be between 0 and 10")])
+    effectonlife_t_init = IntegerField('Effect on Life (1-10)', validators = [Optional(), NumberRange(min = 0, max = 10, message = "Number must be between 0 and 10")])
 
     # Bad Days 
     baddays_yes_t_init = BooleanField('Yes', validators = [Optional()])
     baddays_no_t_init = BooleanField('No', validators = [Optional()])
-    baddays_freq_t_init = IntegerField('Frequency', validators = [InputRequired()])  
+    baddays_freq_t_init = IntegerField('Frequency', validators = [Optional()])  
 
     # are frequent
     areFrequent_yes_t_init = BooleanField('Yes', validators = [Optional()])
@@ -226,7 +226,7 @@ class AddFollowupInterviewForm(FlaskForm):
     # Ear overprotection
     overprotection_yes_t_init = BooleanField('Yes', validators = [Optional()])
     overprotection_no_t_init = BooleanField('No', validators = [Optional()])
-    overprotection_freq_t_init = IntegerField('Percent of time when', validators = [InputRequired()])    
+    overprotection_freq_t_init = IntegerField('Percent of time when', validators = [Optional()])    
     quiet_yes_t_init = BooleanField('Yes', validators = [Optional()])
     quiet_no_t_init = BooleanField('No', validators = [Optional()]) 
 
