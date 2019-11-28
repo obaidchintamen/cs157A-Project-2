@@ -14,7 +14,7 @@ this creates connection to the MySQL Database
 """
 mysql = MySQL()
 mysql.init_app(app)
-app.config['MYSQL_DATABASE_USER'] = 'obaid'
+app.config['MYSQL_DATABASE_USER'] = 'root'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'aaa123123123'
 app.config['MYSQL_DATABASE_DB'] = 'projectDB'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
@@ -132,9 +132,6 @@ def add_interview():
     data = {
         'data': "Visit ID: {}, Date: {}, THC#: {}, Patient Name: {} {}, Visit Number: {}".format(x[1], x[2], x[0], x[4], x[5], x[3])
     }
-    # data = {
-    #     'data': x
-    # }
 
     cursor.close()
     conn.close()
@@ -177,12 +174,23 @@ def init_interview():
     
         clinicNum = form.clinic_number.data
         thcNum = form.thc.data
+
         sql = '''INSERT INTO Interview (Clinic_Num,
         THC_Num) VALUE ({},{})'''.format(clinicNum,thcNum)
         cursor.execute(sql)
         conn.commit()
         cursor.close()
         conn.close()
+
+        # conn = mysql.connect()
+        # cursor = conn.cursor()
+
+        # firstname = form.first_name.data
+        # lastname = form.last_name.data
+
+        # sql = '''INSERT INTO Patient(THC, First_Name, Last_Name, DOB, SSN, Insurance, Tel, Email)
+
+
         
         return redirect('/followup_interview')
 
@@ -197,12 +205,16 @@ def init_interview():
 #     return render_template('test.html', form = form, )
 
 
-@app.route('/followup_interview')
+@app.route('/followup_interview' , methods = ['GET', 'POST'])
 def followup_interview():
     buttons = {
         'save':'Save'
     }
     form = AddFollowupInterviewForm()
+    # if form.validate_on_submit():
+    #     return redirect('/index')
+    # if request.method == "POST":
+    #     return redirect('/index')
 
     return render_template('followup_interview.html', form = form, buttons = buttons)
 
