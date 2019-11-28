@@ -9,7 +9,9 @@ from config import Config
 import os
 
 import datetime
-
+"""
+this creates connection to the MySQL Database
+"""
 mysql = MySQL()
 mysql.init_app(app)
 app.config['MYSQL_DATABASE_USER'] = 'obaid'
@@ -17,6 +19,14 @@ app.config['MYSQL_DATABASE_PASSWORD'] = 'aaa123123123'
 app.config['MYSQL_DATABASE_DB'] = 'projectDB'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 
+
+"""
+Routes to the initial page at /index or / route
+
+Renders index.html page
+
+It passes buttons data to the index.html template
+"""
 @app.route('/')
 @app.route('/index')
 def index():
@@ -29,6 +39,21 @@ def index():
     return render_template('index.html', buttons = buttons)
 
 
+"""
+Routes to the add visit page at /add_visit route
+Renders add_visit.html page
+
+Add Visit button from index.html page also gets you to this page
+
+This page has a form and uses the AddVisitForm() class to pass
+the form fields to add_visit.html template
+
+if the form is valid when the user submits, then a connection
+is opened and a cursor is created. Then the form values are 
+passed to the sql statement which is executed and committed.
+
+user data is also queried and passed to the html template
+"""
 @app.route('/add_visit', methods=['GET', 'POST'])
 def add_visit():
     buttons = {
@@ -75,7 +100,13 @@ def add_visit():
     
     return render_template('add_visit.html', butons = buttons, form = form)
 
+"""
+Routes to /add_interview page
+Renders add_interview.html
 
+This page has a form and uses the AddVisitForm() class to pass
+the form fields to add_visit.html template
+"""
 @app.route('/add_interview')
 def add_interview():
     buttons = {
@@ -175,7 +206,9 @@ def followup_interview():
 
     return render_template('followup_interview.html', form = form, buttons = buttons)
 
+"""
 
+"""
 @app.route('/lookup_visit')
 def lookup_visit():
     conn = mysql.connect()

@@ -4,7 +4,15 @@ from wtforms.validators import DataRequired, InputRequired, NumberRange, Email, 
 from wtforms import StringField, IntegerField, DateField, BooleanField, TextAreaField, validators
 from wtforms.validators import DataRequired, Required
 
+
+
 class AddVisitForm(FlaskForm):
+    """
+    form that is used in /add_visit page
+
+    Each variable is set to a field in the form
+    and validators are specified in the argument
+    """
     visit_ID = IntegerField('Visit ID', validators=[DataRequired()])
     # patient_ID = IntegerField('Pateint Number',validators=[DataRequired()])
     thc_number = IntegerField('TBH #',validators=[DataRequired()])
