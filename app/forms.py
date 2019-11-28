@@ -175,23 +175,23 @@ class AddInitialInterviewForm(FlaskForm):
     
 class AddFollowupInterviewForm(FlaskForm):
     # Beginning Info
-    clinic_number = IntegerField('Clinic #:', validators = [])
-    first_name = StringField('First Name:', validators = [])
-    last_name = StringField('Last Name:', validators = [])
-    dob = DateField('DOB:', validators = [])
-    ssn = StringField('SSN:', validators = [])
-    insurance = StringField('Insurance:', validators = [])
-    date = DateField('Date:', validators = [])
+    clinic_number = IntegerField('Clinic #:', validators = [Optional()])
+    first_name = StringField('First Name:', validators = [Optional()])
+    last_name = StringField('Last Name:', validators = [Optional()])
+    dob = DateField('DOB:', validators = [Optional()])
+    ssn = StringField('SSN:', validators = [Optional()])
+    insurance = StringField('Insurance:', validators = [Optional()])
+    date = DateField('Date:', validators = [Optional()])
     # followup own question
-    category = StringField('Gategory: ', validators = [])
-    date_of_init = DateField('Date of init. couns.: ', validators = [])
-    date_of_instr = DateField('Date of instr. fitt.: ', validators = [])
-    SG = StringField('SG: ', validators = [])
-    HA = StringField('HA: ', validators = [])
-    FUQ_num = StringField('FUQ #: ', validators = [])
-    month = DateField('Month #:', validators = [])
-    thc = IntegerField('T&HC:', validators = [])
-    tel = StringField('tel: ', validators = [])
+    category = StringField('Gategory: ', validators = [Optional()])
+    date_of_init = DateField('Date of init. couns.: ', validators = [Optional()])
+    date_of_instr = DateField('Date of instr. fitt.: ', validators = [Optional()])
+    SG = StringField('SG: ', validators = [Optional()])
+    HA = StringField('HA: ', validators = [Optional()])
+    FUQ_num = StringField('FUQ #: ', validators = [Optional()])
+    month = DateField('Month #:', validators = [Optional()])
+    thc = IntegerField('T&HC:', validators = [Optional()])
+    tel = StringField('tel: ', validators = [Optional()])
 
     # Tinn
     

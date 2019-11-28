@@ -14,7 +14,7 @@ this creates connection to the MySQL Database
 """
 mysql = MySQL()
 mysql.init_app(app)
-app.config['MYSQL_DATABASE_USER'] = 'root'
+app.config['MYSQL_DATABASE_USER'] = 'obaid'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'aaa123123123'
 app.config['MYSQL_DATABASE_DB'] = 'projectDB'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
@@ -106,6 +106,8 @@ Renders add_interview.html
 
 This page has a form and uses the AddVisitForm() class to pass
 the form fields to add_visit.html template
+
+Displays information for the most recent patient at the top
 """
 @app.route('/add_interview')
 def add_interview():
@@ -140,10 +142,22 @@ def add_interview():
         return "submitted"
 
 
-
-
     return render_template('add_interview.html', form = form, buttons = buttons, data = data)
 
+"""
+Routes to /init_intervew page
+Renders init_interview.html
+
+This page has a form and uses the AddInitialInterviewForm() class to pass
+the form fields to init_interview.html template
+
+Displays information for the most recent patient at the top
+
+Inserts Values from form : clinicNum, thcNum
+
+redirects to /followup_interview if form submits
+
+"""
 @app.route('/init_interview', methods = ['GET', 'POST'])
 def init_interview():
     buttons = {
@@ -196,14 +210,18 @@ def init_interview():
 
     return render_template('init_interview.html', form = form, buttons = buttons, data = data)
 
-# @app.route('/test', methods = ['GET', 'POST'])
-# def test():
-#     form = AddInterviewForm()
-#     buttons = {"save":"save"}
-#     if form.validate_on_submit():
-#         return "success"
-#     return render_template('test.html', form = form, )
+"""
+Routes to /followup_interview page
+Renders followup_interview.html
 
+This page has a form and uses the AddFollowupInterviewForm() class to pass
+the form fields to init_interview.html template
+
+Inserts Values from form : clinicNum, thcNum
+
+redirects to /index if form submits
+
+"""
 
 @app.route('/followup_interview' , methods = ['GET', 'POST'])
 def followup_interview():
@@ -215,11 +233,29 @@ def followup_interview():
     #     return redirect('/index')
     # if request.method == "POST":
     #     return redirect('/index')
+    if form.validate_on_submit():
+        conn = mysql.connect()
+        cursor = conn.cursor()
+    
+        clinicNum = form.clinic_number.data
+        thcNum = form.thc.data
+
+        sql = '''INSERT INTO Interview (Clinic_Num,
+        THC_Num) VALUE ({},{})'''.format(clinicNum,thcNum)
+        cursor.execute(sql)
+        conn.commit()
+        cursor.close()
+        conn.close()
+        
+        return redirect('/index')
 
     return render_template('followup_interview.html', form = form, buttons = buttons)
 
 """
+Routes to /look_up page
+Renders look_up.html
 
+Queries all patient names and returns them
 """
 @app.route('/lookup_visit')
 def lookup_visit():

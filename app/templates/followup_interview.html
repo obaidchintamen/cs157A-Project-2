@@ -7,6 +7,7 @@
 <body>
     <h1>Tinnitus / Hyperacusis Follow-Up Interview Form</h1>
     <form method = "POST" action = "{{url_for('followup_interview')}}">
+        {{ form.hidden_tag() }}
         <p>
             {{ form.clinic_number.label }}
             {{ form.clinic_number(size = 32, type = 'number') }}
