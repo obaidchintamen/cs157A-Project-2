@@ -10,6 +10,7 @@ v = {editable = true,version = "*"}
 flask-wtf = "*"
 python-dotenv = "*"
 mysql-connector = "*"
+flask-mysql = "*"
 
 [requires]
 python_version = "3.7"
